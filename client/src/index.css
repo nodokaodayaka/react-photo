@@ -83,6 +83,10 @@
     /* visibility: hidden; */
 }
 
+ul li {
+    list-style-type: none;
+}
+
 @media screen and (max-width:700px) {
     .menu__hum {
         display: block;
