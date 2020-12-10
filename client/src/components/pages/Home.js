@@ -4,6 +4,24 @@ import axios from "axios";
 const Home = () => {
   const [list, setList] = useState([]);
 
+  const onclick = (id) => {
+    const items = list.map(item => {
+      if (item.id == id && !item.my.liked) {
+        item.counter += 1;
+        item.my.liked = !item.my.liked;
+        return item;
+      }
+
+      if (item.id == id && item.my.liked) {
+        item.counter -= 1;
+        item.my.liked = !item.my.liked;
+        return item;
+      }
+      return item;
+    });
+    setList(items);
+  };
+
   useEffect(() => {
     setTimeout(() => {
       axios.get("http://localhost:4000").then((result) => {
@@ -12,7 +30,6 @@ const Home = () => {
     }, 0);
   }, []);
 
-  console.log(list.length);
   if (list.length < 1) {
     return <div>Loading...</div>;
   }
@@ -23,6 +40,10 @@ const Home = () => {
         <li key={k}>
           <h2>{v.title}</h2>
           <p>{v.description}</p>
+          <div>
+            <p>{v.counter}</p>
+            <button onClick={() => onclick(v.id)}>like!</button>
+          </div>
           <img src={v.imageUrl} alt="image" />
         </li>
       ))}
