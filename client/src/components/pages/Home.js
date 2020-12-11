@@ -5,7 +5,7 @@ const Home = () => {
   const [list, setList] = useState([]);
 
   const onclick = (id) => {
-    const items = list.map(item => {
+    const items = list.map((item) => {
       if (item.id == id && !item.my.liked) {
         item.counter += 1;
         item.my.liked = !item.my.liked;
@@ -35,19 +35,19 @@ const Home = () => {
   }
 
   return (
-    <ul>
+    <div className={"cards"}>
       {list.map((v, k) => (
-        <li key={k}>
+        <div className={"card"} key={k}>
           <h2>{v.title}</h2>
           <p>{v.description}</p>
           <div>
             <p>{v.counter}</p>
-            <button onClick={() => onclick(v.id)}>like!</button>
+            <span className={"material-icons " + (v.my.liked ? "liked" : "")} onClick={() => onclick(v.id)}>tag_faces</span>
           </div>
           <img src={v.imageUrl} alt="image" />
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };
 

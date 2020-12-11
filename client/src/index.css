@@ -87,6 +87,10 @@ ul li {
     list-style-type: none;
 }
 
+.material-icons.liked {
+    color: #ec07ba;
+}
+
 @media screen and (max-width:700px) {
     .menu__hum {
         display: block;
