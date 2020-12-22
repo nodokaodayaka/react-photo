@@ -91,6 +91,37 @@ ul li {
     color: #ec07ba;
 }
 
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 20px 10px;
+    margin-top: 20px;
+    width:100%;
+}
+
+.card .photo {
+    width:100%;
+}
+
+.content {
+    display:flex;
+    justify-content:space-between;
+    align-items: flex-start;
+    margin-top:10px;
+}
+
+.like {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 @media screen and (max-width:700px) {
     .menu__hum {
         display: block;
