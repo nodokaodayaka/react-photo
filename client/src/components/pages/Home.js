@@ -38,13 +38,19 @@ const Home = () => {
     <div className={"cards"}>
       {list.map((v, k) => (
         <div className={"card"} key={k}>
-          <h2>{v.title}</h2>
-          <p>{v.description}</p>
           <div>
-            <p>{v.counter}</p>
-            <span className={"material-icons " + (v.my.liked ? "liked" : "")} onClick={() => onclick(v.id)}>tag_faces</span>
+            <img className={"photo"} src={v.imageUrl} alt="test" />
           </div>
-          <img src={v.imageUrl} alt="image" />
+          <div className={"content"}>
+            <div className={"detail"}>
+              <h2>{v.title}</h2>
+              <p>{v.description}</p>
+            </div>
+            <div className={"like"}>
+              <div className={"material-icons " + (v.my.liked ? "liked" : "")} onClick={() => onclick(v.id)}>tag_faces</div>
+              <div>{v.counter}</div>
+            </div>
+          </div>
         </div>
       ))}
     </div>
